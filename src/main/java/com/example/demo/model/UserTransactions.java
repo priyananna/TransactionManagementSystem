@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.model;
 
 import java.util.UUID;
 
@@ -11,10 +11,12 @@ import javax.persistence.Id;
 public class UserTransactions {
 	
     @Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int Id;
-	private String date;
+	private int accountId;
+
+
+	//  private UUID randomNum;
 	private String description;
-	private UUID randomNum;
+	private String date;	
 	private double monetaryAmt;
 	
 	
@@ -24,11 +26,10 @@ public class UserTransactions {
 	
 	
 	
-	public UserTransactions(String date, String description, UUID randomNum, Integer monetaryAmt) {
+	public UserTransactions(String date, String description, double monetaryAmt) {
 		super();
 		this.date = date;
 		this.description = description;
-		this.randomNum = randomNum;
 		this.monetaryAmt = monetaryAmt;
 	}
 
@@ -53,6 +54,7 @@ public class UserTransactions {
 	}
 
 
+	/*
 	public UUID getRandomNum() {
 		return randomNum;
 	}
@@ -61,17 +63,25 @@ public class UserTransactions {
 	public void setRandomNum(UUID randomNum) {
 		this.randomNum = randomNum;
 	}
+*/
+	
 
-
-	public int getMonetaryAmt() {
-		return (int) monetaryAmt;
+	public double getMonetaryAmt() {
+		return (double) monetaryAmt;
 	}
 
 
-	public void setMonetaryAmt(Integer monetaryAmt) {
+	public void setMonetaryAmt(double monetaryAmt) {
 		this.monetaryAmt = monetaryAmt;
 	}
 	
-	
+	public int getAccountId() {
+			return accountId;
+		}
+
+
+	public void setAccountId(int accountId) {
+		this.accountId = accountId;
+	}
 
 }
